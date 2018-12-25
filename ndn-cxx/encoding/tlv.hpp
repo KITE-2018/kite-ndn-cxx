@@ -160,6 +160,7 @@ enum ContentTypeValue : uint32_t {
   ContentType_Nack      = 3,    ///< application-level nack
   ContentType_Manifest  = 4,
   ContentType_PrefixAnn = 5,    ///< prefix announcement
+  ContentType_KiteAck   = 6,    ///< KITE acknowledgment
   ContentType_Flic      = 1024, ///< File-Like ICN Collection
 };
 

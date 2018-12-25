@@ -589,7 +589,8 @@ BOOST_AUTO_TEST_CASE(PrintContentTypeValue)
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(ContentType_Nack), "Nack");
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(ContentType_Manifest), "Manifest");
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(ContentType_PrefixAnn), "PrefixAnn");
-  BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(static_cast<ContentTypeValue>(6)), "Reserved(6)");
+  BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(ContentType_KiteAck), "KiteAck");
+  BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(static_cast<ContentTypeValue>(7)), "Reserved(7)");
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(static_cast<ContentTypeValue>(1023)), "Reserved(1023)");
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(ContentType_Flic), "FLIC");
   BOOST_CHECK_EQUAL(boost::lexical_cast<std::string>(static_cast<ContentTypeValue>(1025)), "Unknown(1025)");

@@ -61,11 +61,13 @@ operator<<(std::ostream& os, ContentTypeValue ct)
       return os << "Manifest";
     case ContentType_PrefixAnn:
       return os << "PrefixAnn";
+    case ContentType_KiteAck:
+      return os << "KiteAck";
     case ContentType_Flic:
       return os << "FLIC";
   }
 
-  if (ct >= 6 && ct <= 1023) {
+  if (ct <= 1023) {
     os << "Reserved(";
   }
   else if (ct >= 9000 && ct <= 9999) {
