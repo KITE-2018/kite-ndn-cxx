@@ -1,6 +1,6 @@
 /* -*- Mode:C++; c-file-style:"gnu"; indent-tabs-mode:nil; -*- */
 /*
- * Copyright (c) 2013-2020 Regents of the University of California.
+ * Copyright (c) 2013-2021 Regents of the University of California.
  *
  * This file is part of ndn-cxx library (NDN C++ library with eXperimental eXtensions).
  *
@@ -163,6 +163,7 @@ enum ContentTypeValue : uint32_t {
   ContentType_Nack      = 3,    ///< application-level nack
   ContentType_Manifest  = 4,
   ContentType_PrefixAnn = 5,    ///< prefix announcement
+  ContentType_KiteAck   = 6,    ///< KITE acknowledgment
   ContentType_Flic      = 1024, ///< File-Like ICN Collection
 };
 
