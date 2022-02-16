@@ -26,16 +26,16 @@
 #include "ndn-cxx/security/interest-signer.hpp"
 #include "ndn-cxx/util/dummy-client-face.hpp"
 
-#include "tests/key-chain-fixture.hpp"
-#include "tests/test-common.hpp"
+#include "tests/boost-test.hpp"
+#include "tests/unit/identity-management-time-fixture.hpp"
 
 namespace ndn {
 namespace kite {
 namespace tests {
 
-using ::ndn::tests::makeInterest;
+// using ::ndn::tests::makeInterest;
 
-class RequestFixture : public ndn::tests::KeyChainFixture
+class RequestFixture : public ndn::tests::IdentityManagementTimeFixture
 {
 public:
   RequestFixture()
@@ -97,6 +97,20 @@ makeRequestInterest()
   };
 
   return Interest(Block(WIRE, sizeof(WIRE)));
+}
+
+shared_ptr<Interest>
+makeInterest(const Name& name, bool canBePrefix = false,
+             optional<time::milliseconds> lifetime = nullopt,
+             optional<Interest::Nonce> nonce = nullopt)
+{
+  auto interest = std::make_shared<Interest>(name);
+  interest->setCanBePrefix(canBePrefix);
+  if (lifetime) {
+    interest->setInterestLifetime(*lifetime);
+  }
+  interest->setNonce(nonce);
+  return interest;
 }
 
 BOOST_AUTO_TEST_CASE(DecodeGood)

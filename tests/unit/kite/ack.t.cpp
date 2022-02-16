@@ -26,14 +26,14 @@
 #include "ndn-cxx/kite/request.hpp"
 #include "ndn-cxx/util/dummy-client-face.hpp"
 
-#include "tests/test-common.hpp"
-#include "tests/unit/io-key-chain-fixture.hpp"
+#include "tests/boost-test.hpp"
+#include "tests/unit/identity-management-time-fixture.hpp"
 
 namespace ndn {
 namespace kite {
 namespace tests {
 
-class AckFixture : public ndn::tests::IoKeyChainFixture
+class AckFixture : public ndn::tests::IdentityManagementTimeFixture
 {
 public:
   AckFixture()
@@ -139,10 +139,10 @@ BOOST_AUTO_TEST_CASE(Encode)
 
 BOOST_AUTO_TEST_CASE(EndToEnd)
 {
-  util::DummyClientFace producerFace(m_io, m_keyChain); // mobile producer
-  util::DummyClientFace forwarderProducerFace(m_io, m_keyChain); // forwarder face connected to the producer
-  util::DummyClientFace rvFace(m_io, m_keyChain); // RV
-  util::DummyClientFace forwarderRvFace(m_io, m_keyChain); // forwarder face connected to the RV
+  util::DummyClientFace producerFace(io, m_keyChain); // mobile producer
+  util::DummyClientFace forwarderProducerFace(io, m_keyChain); // forwarder face connected to the producer
+  util::DummyClientFace rvFace(io, m_keyChain); // RV
+  util::DummyClientFace forwarderRvFace(io, m_keyChain); // forwarder face connected to the RV
 
   producerFace.linkTo(forwarderProducerFace);
   rvFace.linkTo(forwarderRvFace);
